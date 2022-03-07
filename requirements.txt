@@ -1,0 +1,8 @@
+APScheduler==3.9.1
+Django==4.0.3
+djangorestframework==3.13.1
+drf-yasg==1.20.0
+requests==2.27.1
+psycopg2-binary==2.9.3
+pytest-django==4.5.2
+factory-boy==3.2.1
