@@ -1,9 +1,11 @@
 import requests
 
 from rest_framework import status, viewsets
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
 
 from main.models import Weather
+from main.permissions import IsNaskUser
 from main.serializers import WeatherSerializer
 
 
@@ -11,6 +13,8 @@ class WeatherViewSet(viewsets.ModelViewSet):
     """Retrieves a list of weather information"""
     serializer_class = WeatherSerializer
     queryset = Weather.objects.all()
+    permission_classes = (IsNaskUser,)
+    authentication_classes = (TokenAuthentication,)
 
     def get_weather_data(self):
         api_key = '4fca9c1a6796c9584a3843d06a9cd7a6'
